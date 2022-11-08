@@ -18,10 +18,10 @@ const HomeServices = () => {
 	console.log("homeServices", homeServices);
 
 	return (
-		<section className="home-service my-10">
+		<section className="home-service my-20">
 			<div className="container mx-auto">
 				<div className="text-center my-10">
-                <h2 className="mb-05 text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary">
+                <h2 className="mb-05 text-5xl font-extrabold">
                     Service
                 </h2>
                 <h4 className="subtitle text-xl">
