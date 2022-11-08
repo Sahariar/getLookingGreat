@@ -1,17 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { useLottie } from "lottie-react";
-import register from "../../assets/registration.json";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Register = () => {
 
-    const lottieAnimOptions = {
-		animationData: register,
-		loop: true,
-	};
-
-	const { View } = useLottie(lottieAnimOptions);
 
     const {logInWithGoogle, createUserWithEmail, verifyEmail , userProfileUpdate} = useContext(AuthContext);
     const [notification , setNotification] = useState(''); 
@@ -35,7 +27,6 @@ const Register = () => {
             const user = result.user;
             form.reset();
             console.log(user);
-            handleVerification(email)
             handleUserProfileUpdate(name ,photoUrl );
             // ...
           })
@@ -239,7 +230,7 @@ const Register = () => {
 				</form>
 			</div>
             <div className="w-5/12">
-            {View}
+     
             </div>
             </div>
             </div>

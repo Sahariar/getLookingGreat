@@ -1,16 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useLottie } from "lottie-react";
-import register from "../../assets/login-screen.json";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-    const lottieAnimOptions = {
-		animationData: register,
-		loop: true,
-	};
 
-	const { View } = useLottie(lottieAnimOptions);
 
     const {logInWithGoogle, logInUserWithEmail} = useContext(AuthContext);
     const [notification , setNotification] = useState(''); 
@@ -175,7 +168,7 @@ const Login = () => {
 				</form>
 			</div>
             <div className="w-5/12 h-48">
-            {View}
+            
             </div>
             </div>
             </div>
