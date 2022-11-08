@@ -8,25 +8,25 @@ module.exports = {
     themes: [
       {
         mytheme: {
-        
-"primary": "#8d46dd",
-        
-"secondary": "#35bbd6",
-        
-"accent": "#86efac",
-        
-"neutral": "#212530",
-        
-"base-100": "#F1E6F4",
-        
-"info": "#5168D6",
-        
-"success": "#169855",
-        
-"warning": "#F6B855",
-        
-"error": "#F52451",
-        },
+          
+          "primary": "#6E0B75",
+                   
+          "secondary": "#007EBD",
+                   
+          "accent": "#facc15",
+                   
+          "neutral": "#1F2937",
+                   
+          "base-100": "#FFFFFF",
+                   
+          "info": "#3ABFF8",
+                   
+          "success": "#36D399",
+                   
+          "warning": "#FBBD23",
+                   
+          "error": "#e11d48",
+                   },
       },
     ],
   },
