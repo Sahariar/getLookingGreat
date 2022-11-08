@@ -13,7 +13,7 @@ const Header = () => {
 			});
 	};
 	return (
-		<header className="header-area ">
+		<header className="header-area z-50 relative">
 			<div className="container mx-auto navbar">
 				<div className="navbar-start">
 					<div className="dropdown">
