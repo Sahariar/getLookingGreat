@@ -7,4 +7,13 @@
     background-image: url("https://images.unsplash.com/photo-1621691553102-66d4ecdb1be2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80");
     height:88vh ;
     background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
 }
+@media only screen and (max-width: 1024px) {
+    .hero-img{
+          background-repeat: no-repeat;
+        background-size: auto;
+        background-position: right;
+    }
+  }

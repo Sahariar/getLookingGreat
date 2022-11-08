@@ -40,46 +40,59 @@ const Header = () => {
 							<li>
 								<NavLink to={"/home"}> Home</NavLink>
 							</li>
-							{}
-							<li tabIndex={0}>
-								<NavLink to={"/services"}>
-									Services
-									<svg
-										className="fill-current"
-										xmlns="http://www.w3.org/2000/svg"
-										width="20"
-										height="20"
-										viewBox="0 0 24 24"
-									>
-										<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-									</svg>
-								</NavLink>
-								<ul className="p-2 bg-base-100">
-									<li>
-										<NavLink to={"/services/add"}>Add Service</NavLink>
+							{user?.email ? (
+								<>
+									<li tabIndex={0}>
+										<NavLink to={"/services"}>
+											Services
+											<svg
+												className="fill-current"
+												xmlns="http://www.w3.org/2000/svg"
+												width="20"
+												height="20"
+												viewBox="0 0 24 24"
+											>
+												<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+											</svg>
+										</NavLink>
+										<ul className="p-2 bg-base-100">
+											<li>
+												<NavLink to={"/services/add"}>Add Service</NavLink>
+											</li>
+										</ul>
 									</li>
-								</ul>
-							</li>
-							<li tabIndex={0}>
-								<NavLink to={"/reviews"}>
-									{" "}
-									Reviews{" "}
-									<svg
-										className="fill-current"
-										xmlns="http://www.w3.org/2000/svg"
-										width="20"
-										height="20"
-										viewBox="0 0 24 24"
-									>
-										<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-									</svg>
-								</NavLink>
-								<ul className="p-2 bg-base-100">
-									<li>
-										<NavLink to={"/reviews/add"}>Add Review</NavLink>
+									<li tabIndex={0}>
+										<NavLink to={"/reviews"}>
+											{" "}
+											Reviews{" "}
+											<svg
+												className="fill-current"
+												xmlns="http://www.w3.org/2000/svg"
+												width="20"
+												height="20"
+												viewBox="0 0 24 24"
+											>
+												<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+											</svg>
+										</NavLink>
+										<ul className="p-2 bg-base-100">
+											<li>
+												<NavLink to={"/reviews/add"}>Add Review</NavLink>
+											</li>
+										</ul>
 									</li>
-								</ul>
-							</li>
+								</>
+							) : (
+								<>
+									<li>
+										<NavLink to={"/services"}>Services</NavLink>
+									</li>
+									<li>
+										<NavLink to={"/reviews"}>Reviews</NavLink>
+									</li>
+								</>
+							)}
+
 							<li>
 								<NavLink to={"/blog"}> Blog</NavLink>
 							</li>
@@ -92,7 +105,7 @@ const Header = () => {
 									<Logo></Logo>
 								</div>
 								<div className="name-title text-xl">
-								<h1 className="font-extrabold text-primary">
+								<h1 className="font-extrabold text-primary hidden lg:flex">
 								Get Looking Great
         </h1>
 								</div>

@@ -22,6 +22,14 @@ const handleNavigate = (_id) =>{
   <div className="card-body items-center text-center">
     <h2 className="card-title">{name}</h2>
     <p>{description?.slice(0,100)}...</p>
+    <div className="info-area">
+      <p className="text-xl text-primary ">
+      Price:  <span className="font-bold">${price}</span> 
+      </p>
+      <p className="text-xl text-warning ">
+      Ratting:  <span className="font-bold">{ratting}</span> 
+      </p>
+    </div>
     <div className="card-actions">
       <button className="btn btn-primary"
       onClick={() => handleNavigate(_id)}
