@@ -92,7 +92,9 @@ const Header = () => {
 									<Logo></Logo>
 								</div>
 								<div className="name-title text-xl">
-									<h2>Get Looking Great</h2>
+								<h1 className="font-extrabold text-primary">
+								Get Looking Great
+        </h1>
 								</div>
 							</div>
 						</Link>
