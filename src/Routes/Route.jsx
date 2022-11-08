@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
 import Blogs from "../Pages/Blog/Blogs";
+import DetailsService from "../Pages/DetailsService/DetailsService";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
@@ -37,12 +38,17 @@ export const route = createBrowserRouter([
                 element:<Services />
             },
             {
+                path:"/services/:id",
+                loader:({params})=> fetch(`http://localhost:4000/services/${params.id}`),
+                element:<DetailsService />
+            },
+            {
                 path:"/services/add",
                 element: <AddServices />
             },
             {
                 path:"/reviews",
-                element: <Reviews />
+                element: <PrivateRoutes><Reviews /></PrivateRoutes>
             },
             {
                 path:"/blog",

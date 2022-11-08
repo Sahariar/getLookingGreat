@@ -64,7 +64,7 @@ const Header = () => {
 									<li tabIndex={0}>
 										<NavLink to={"/reviews"}>
 											{" "}
-											Reviews{" "}
+											My Reviews{" "}
 											<svg
 												className="fill-current"
 												xmlns="http://www.w3.org/2000/svg"
@@ -87,9 +87,7 @@ const Header = () => {
 									<li>
 										<NavLink to={"/services"}>Services</NavLink>
 									</li>
-									<li>
-										<NavLink to={"/reviews"}>Reviews</NavLink>
-									</li>
+									
 								</>
 							)}
 
@@ -140,7 +138,7 @@ const Header = () => {
 									<li tabIndex={0}>
 										<NavLink to={"/reviews"}>
 											{" "}
-											Reviews{" "}
+											My Reviews{" "}
 											<svg
 												className="fill-current"
 												xmlns="http://www.w3.org/2000/svg"
@@ -163,9 +161,7 @@ const Header = () => {
 									<li>
 										<NavLink to={"/services"}>Services</NavLink>
 									</li>
-									<li>
-										<NavLink to={"/reviews"}>Reviews</NavLink>
-									</li>
+									
 								</>
 							)}
 

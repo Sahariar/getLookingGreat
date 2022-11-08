@@ -5,6 +5,7 @@ const ServiceGrid = ({item}) => {
  const {
     description,
     img,
+    thumbImg,
     name,
     price,
     ratting,
@@ -12,12 +13,12 @@ const ServiceGrid = ({item}) => {
 } = item
 const navigate = useNavigate();
 const handleNavigate = (_id) =>{
-    navigate(`/${_id}`)
+    navigate(`/services/${_id}`)
 }
     return (
         <div className="card w-96 lg:w-full xl:w-96 bg-base-100 shadow-xl hover:shadow-2xl mx-auto">
   <figure className="px-10 pt-10 bg-gradient-to-br lg:bg-gradient-to-b from-secondary to-transparent bg-opacity-9 ">
-    <img src={img} alt={name} className="rounded-xl" />
+    <img src={thumbImg} alt={name} className="rounded-xl" />
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title">{name}</h2>
