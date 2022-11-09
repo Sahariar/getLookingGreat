@@ -4,13 +4,14 @@ import ServiceGrid from "./ServiceGrid/ServiceGrid";
 
 const HomeServices = () => {
 	const [homeServices, setHomeServices] = useState([]);
+    const [dataLoading, setDataLoading] = useState(true);
 	useEffect(() => {
 		const limit = 3;
 		const url = `http://localhost:4000/services?limit=${limit}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {
-				// console.log(data);
+				setDataLoading(false);
 				setHomeServices(data);
 			});
 	}, []);
@@ -30,12 +31,21 @@ const HomeServices = () => {
                 </div>
                 
         <div className="xl:w-10/12 mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {
+					dataLoading ? <div className="flex items-center justify-center space-x-2">
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+				</div> :
+					       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 
-                {homeServices.map((item) => (
-                    <ServiceGrid key={item._id} item={item}></ServiceGrid>
-                ))}
-            </div>
+                           {homeServices.map((item) => (
+                               <ServiceGrid key={item._id} item={item}></ServiceGrid>
+                           ))}
+                       </div>
+				
+				}
+ 
         </div>
 				
                         <div className="lg:w-2/12 w-4/12 mx-auto my-10">

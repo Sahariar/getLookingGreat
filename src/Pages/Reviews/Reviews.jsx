@@ -8,6 +8,7 @@ const Reviews = () => {
     DocumentTItle('Reviews');
     const {user} = useContext(AuthContext);
     const [userReviews , setUserReviews] = useState([]);
+    const [dataLoading, setDataLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -15,7 +16,7 @@ const Reviews = () => {
         fetch(url)
         .then((res) => res.json())
 			.then((data) => {
-			
+                setDataLoading(false)
 				setUserReviews(data);
 			});
     }, [userReviews]);
@@ -57,18 +58,28 @@ const Reviews = () => {
             </div>
         </div>
         <div className="xl:w-10/12 mx-auto my-24">
-    <div className="grid grid-cols-1 gap-8">
-            {
-                userReviews.length > 0 ? userReviews.map(
-                    item => <ReviewGrid
-                    key={item._id}
-                    item={item}
-                    handleDelete={handleDelete} 
-                    handleEdits={handleEdits} ></ReviewGrid>
-                ):
-                `No reviews were added`
-            }
-        </div>
+
+        {
+					dataLoading ? <div className="flex items-center justify-center space-x-2">
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+				</div> :
+					    <div className="grid grid-cols-1 gap-8">
+                        {
+                            userReviews.length > 0 ? userReviews.map(
+                                item => <ReviewGrid
+                                key={item._id}
+                                item={item}
+                                handleDelete={handleDelete} 
+                                handleEdits={handleEdits} ></ReviewGrid>
+                            ):
+                            `No reviews were added`
+                        }
+                    </div>
+				
+				}
+
     </div>
     </section>
     );

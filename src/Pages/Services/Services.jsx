@@ -29,18 +29,21 @@ const Services = () => {
 				</div>
 			</div>
             <div className="xl:w-10/12 mx-auto my-48">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                 {
-					dataLoading ? "ok" :
-					<>
+					dataLoading ? <div className="flex items-center justify-center space-x-2">
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+				</div> :
+					<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
 					{allServices.map((item) => (
 						<ServiceLayout key={item._id} item={item}></ServiceLayout>
 					))}
-					</>
+					</div>
 				
 				}
            
-            </div>
+            
         </div>
 		</section>
 	);
