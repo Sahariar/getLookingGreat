@@ -41,14 +41,12 @@
    * tailwindCss,
    * daisyui
    * firebase
-   * lottie-react,
    * react,
    * react-dom,
    * react-icons,
    * react-router-dom,
    * react-Hook-From,
    * react-Photo-View,
-   * react-to-pdf,
    * react-toastify,
    * readme-md-generator,
    * Mongodb
