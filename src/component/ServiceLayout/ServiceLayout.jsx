@@ -1,8 +1,10 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useNavigate } from "react-router-dom";
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceLayout = ({ item }) => {
-	const { description, img, name, price, ratting, _id } = item;
+	const { description, img, name, price, ratting, _id ,thumbImg } = item;
 	const navigate = useNavigate();
 const handleNavigate = (_id) =>{
     navigate(`/services/${_id}`)
@@ -10,7 +12,11 @@ const handleNavigate = (_id) =>{
 	return (
 		<div className="card w-96 xl:w-full xl:card-side bg-base-100 shadow-xl mx-auto hover:bg-gradient-to-tl from-secondary via-white to-transparent bg-gradient-to-br">
 			<figure className="xl:w-5/12">
-				<img src={img} alt={name} />
+			<PhotoProvider>
+      <PhotoView src={img}>
+        <img src={img} alt={name} className="cursor-pointer"/>
+      </PhotoView>
+    </PhotoProvider>
 			</figure>
 			<div className="card-body xl:w-7/12">
 				<h2 className="card-title">{name}</h2>
