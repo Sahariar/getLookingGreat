@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ReviewGrid from '../../component/ReviewGrid/ReviewGrid';
 import { AuthContext } from '../../context/AuthProvider';
 import DocumentTItle from '../../utilities/DocumentTitle';
@@ -7,6 +8,7 @@ const Reviews = () => {
     DocumentTItle('Reviews');
     const {user} = useContext(AuthContext);
     const [userReviews , setUserReviews] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const url = `http://localhost:4000/reviews?userEmail=${user?.email}`
@@ -16,16 +18,28 @@ const Reviews = () => {
 			
 				setUserReviews(data);
 			});
-    }, []);
+    }, [userReviews]);
 
-    const handleEdits = () => {
-
+    const handleEdits = (_id) => {
+{/* <Link to={`/reviews/add/${details._id}`}>Reviews</Link>   */}
+    navigate(`/reviews/edit/${_id}`)
     }
     const handleDelete = (_id) => {
         const confirm = window.confirm("are you sure to Delete this Review")
-
+        console.log(_id);
         if(confirm){
-            console.log(_id);
+                fetch(`http://localhost:4000/reviews/${_id}`, {
+                 method: "DELETE"
+                })
+                .then(res=> res.json())
+                .then(data => {
+                 console.log(data);
+                 if(data.deletedCount > 0 ){
+                     const remainingReviews = userReviews.filter( item => item._id !== _id);
+                     setUserReviews(remainingReviews);
+                     alert('Review Deleted Successfully.')
+                 }
+                })
         }
        
         
@@ -49,7 +63,8 @@ const Reviews = () => {
                     item => <ReviewGrid
                     key={item._id}
                     item={item}
-                    handleDelete={handleDelete} ></ReviewGrid>
+                    handleDelete={handleDelete} 
+                    handleEdits={handleEdits} ></ReviewGrid>
                 ):
                 `No reviews were added`
             }

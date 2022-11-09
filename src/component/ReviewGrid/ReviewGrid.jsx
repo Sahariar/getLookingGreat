@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {BsStarHalf ,BsStarFill } from "react-icons/bs";
 import { MdEdit, MdDeleteForever } from "react-icons/md";
-const ReviewGrid = ({ item , handleDelete }) => {
+const ReviewGrid = ({ item , handleDelete ,handleEdits }) => {
 	const { description, ratting, _id, postTime, service_id } = item;
 	const [serviceName, setServiceName] = useState([]);
 
@@ -31,12 +31,18 @@ const ReviewGrid = ({ item , handleDelete }) => {
                             <BsStarHalf  size={22}/> 
                    
                     {ratting} 
+                    
                     </span>
                      </p>
 					<p>Time: {postTime}</p>
 				</div>
 				<div className="flex flex-col justify-around w-2/12">
-					<button className="btn btn-circle btn-outline btn-primary">
+					<button className="btn btn-circle btn-outline btn-primary"
+                    onClick={()=> {
+                        handleEdits(_id);
+                    }}
+                    
+                    >
 						<MdEdit size={24} />
 					</button>
 					<button className="btn btn-circle btn-outline btn-primary" 
