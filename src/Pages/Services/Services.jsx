@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ServiceLayout from "../../component/ServiceLayout/ServiceLayout";
+import DocumentTItle from "../../utilities/DocumentTitle";
 
 const Services = () => {
+	DocumentTItle('Services');
 	const [allServices, setAllServices] = useState([]);
 
 	useEffect(() => {

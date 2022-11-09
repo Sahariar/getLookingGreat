@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import DocumentTItle from "../../utilities/DocumentTitle";
 
 const Register = () => {
-
+	DocumentTItle('Register');
 
     const {logInWithGoogle, createUserWithEmail, verifyEmail , userProfileUpdate} = useContext(AuthContext);
     const [notification , setNotification] = useState(''); 

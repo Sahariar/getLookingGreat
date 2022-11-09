@@ -1,6 +1,8 @@
 import React from "react";
+import DocumentTItle from "../../utilities/DocumentTitle";
 
 const Blogs = () => {
+    DocumentTItle('Blog');
 	return (
 		<section className="service-page">
 			<div className=" bg-gradient-to-tl  from-secondary/20 via-white to-secondary/20 shadow-xl rounded-lg xl:mx-12 mx-4">
