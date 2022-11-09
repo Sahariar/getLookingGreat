@@ -18,7 +18,18 @@ const Reviews = () => {
 			});
     }, []);
 
-    console.log(userReviews);
+    const handleEdits = () => {
+
+    }
+    const handleDelete = (_id) => {
+        const confirm = window.confirm("are you sure to Delete this Review")
+
+        if(confirm){
+            console.log(_id);
+        }
+       
+        
+    }
 
 
     return (
@@ -37,7 +48,8 @@ const Reviews = () => {
                 userReviews.length > 0 ? userReviews.map(
                     item => <ReviewGrid
                     key={item._id}
-                    item={item} ></ReviewGrid>
+                    item={item}
+                    handleDelete={handleDelete} ></ReviewGrid>
                 ):
                 `No reviews were added`
             }

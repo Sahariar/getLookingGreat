@@ -5,13 +5,13 @@ import DocumentTItle from "../../utilities/DocumentTitle";
 const Services = () => {
 	DocumentTItle('Services');
 	const [allServices, setAllServices] = useState([]);
-
+	const [dataLoading, setDataLoading] = useState(true);
 	useEffect(() => {
 		const url = `http://localhost:4000/services`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {
-			
+				setDataLoading(false);
 				setAllServices(data);
 			});
 	}, []);
@@ -30,10 +30,16 @@ const Services = () => {
 			</div>
             <div className="xl:w-10/12 mx-auto my-48">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                
-                {allServices.map((item) => (
-                    <ServiceLayout key={item._id} item={item}></ServiceLayout>
-                ))}
+                {
+					dataLoading ? "ok" :
+					<>
+					{allServices.map((item) => (
+						<ServiceLayout key={item._id} item={item}></ServiceLayout>
+					))}
+					</>
+				
+				}
+           
             </div>
         </div>
 		</section>

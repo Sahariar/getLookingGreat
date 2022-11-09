@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {BsStarHalf ,BsStarFill } from "react-icons/bs";
 import { MdEdit, MdDeleteForever } from "react-icons/md";
-const ReviewGrid = ({ item }) => {
+const ReviewGrid = ({ item , handleDelete }) => {
 	const { description, ratting, _id, postTime, service_id } = item;
 	const [serviceName, setServiceName] = useState([]);
 
@@ -13,7 +13,7 @@ const ReviewGrid = ({ item }) => {
 				setServiceName(data);
 			});
 	}, []);
-	console.log(serviceName);
+	
 	return (
 		<div className="card rounded-lg shadow-xl from-secondary via-white to-transparent bg-gradient-to-br my-5 w-10/12 mx-auto">
 			<div className="flex p-12">
@@ -39,7 +39,11 @@ const ReviewGrid = ({ item }) => {
 					<button className="btn btn-circle btn-outline btn-primary">
 						<MdEdit size={24} />
 					</button>
-					<button className="btn btn-circle btn-outline btn-primary">
+					<button className="btn btn-circle btn-outline btn-primary" 
+                    onClick={()=> {
+                        handleDelete(_id);
+                    }}
+                    >
 						<MdDeleteForever size={24} />
 					</button>
 				</div>
