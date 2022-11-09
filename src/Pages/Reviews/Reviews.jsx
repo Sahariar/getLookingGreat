@@ -33,7 +33,7 @@ const Reviews = () => {
                 </div>
             </div>
         </div>
-        <div className="xl:w-10/12 mx-auto my-48">
+        <div className="xl:w-10/12 mx-auto my-24">
     <div className="grid grid-cols-1 gap-8">
             {
                 userReviews.length > 0 ? userReviews.map(

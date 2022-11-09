@@ -5,8 +5,6 @@ import ReviewList from '../../component/ReviewList/ReviewList';
 
 const DetailsService = () => {
     const details = useLoaderData();
-    console.log(details);
-    
     const [allReviews , setAllReviews] = useState([]);
 
     useEffect(() => {
