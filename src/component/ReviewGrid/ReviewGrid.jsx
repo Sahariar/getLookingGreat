@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// MdEditNote
+import {BsStarHalf ,BsStarFill } from "react-icons/bs";
 import { MdEdit, MdDeleteForever } from "react-icons/md";
 const ReviewGrid = ({ item }) => {
 	const { description, ratting, _id, postTime, service_id } = item;
@@ -20,7 +20,19 @@ const ReviewGrid = ({ item }) => {
 				<div className="info-area space-y-4">
 					<h2 className="card-title">Review On : {serviceName.name}</h2>
 					<p className="mr-12"> <span className="text-xl font-bold">Review</span> : {description}</p>
-					<p>Ratting : {ratting} </p>
+					<p className="flex gap-4"> 
+                    Ratting :
+                    <span className="flex text-red-600">
+                    
+                    <BsStarFill  size={22}/> 
+                            <BsStarFill  size={22}/> 
+                            <BsStarFill  size={22}/> 
+                            <BsStarFill  size={22}/> 
+                            <BsStarHalf  size={22}/> 
+                   
+                    {ratting} 
+                    </span>
+                     </p>
 					<p>Time: {postTime}</p>
 				</div>
 				<div className="flex flex-col justify-around w-2/12">

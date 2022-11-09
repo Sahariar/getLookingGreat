@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import { BsCurrencyDollar,BsStarHalf ,BsStarFill } from "react-icons/bs";
 import ReviewList from '../../component/ReviewList/ReviewList';
+import { AuthContext } from '../../context/AuthProvider';
 
 const DetailsService = () => {
+    const {user} = useContext(AuthContext);
     const details = useLoaderData();
     const [allReviews , setAllReviews] = useState([]);
 
@@ -90,6 +92,19 @@ const DetailsService = () => {
                 <h2 className="reviewItem text-center">
                     {details.name} have {allReviews.length} Reviews
                 </h2>
+
+{
+ user?.email ? <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
+    Add <span className='mx-2'>
+    <Link to={`/reviews/add/${details._id}`}>Reviews</Link>  
+    </span>
+   Here</div> : <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
+   Please  <span className='mx-2'>
+    <Link to={'/login'}>login</Link>  
+    to add a review  
+    </span></div>
+}
+            
             <div className="w-8/12 mx-auto">
            {
             allReviews.map(item => <ReviewList

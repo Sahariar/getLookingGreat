@@ -6,8 +6,6 @@ import DocumentTItle from '../../utilities/DocumentTitle';
 const Reviews = () => {
     DocumentTItle('Reviews');
     const {user} = useContext(AuthContext);
-
-    console.log(user?.email);
     const [userReviews , setUserReviews] = useState([]);
 
     useEffect(() => {
