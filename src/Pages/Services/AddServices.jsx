@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DocumentTItle from '../../utilities/DocumentTitle';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 const AddServices = () => {
     DocumentTItle('Add Services');
 
@@ -29,6 +30,16 @@ const onSubmit =(data) =>{
            reset()
            setSuccess(true);
            setSubmitting(false)
+           toast.success('Successfully Added Service', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
         }
         
     }).catch(errors => {
