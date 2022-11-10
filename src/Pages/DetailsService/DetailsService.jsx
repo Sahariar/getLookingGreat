@@ -8,13 +8,13 @@ const DetailsService = () => {
     const {user} = useContext(AuthContext);
     const details = useLoaderData();
     const [allReviews , setAllReviews] = useState([]);
-
+    const [dataLoading, setDataLoading] = useState(true);
     useEffect(() => {
         const url = `http://localhost:4000/reviews?service_id=${details._id}`
         fetch(url)
         .then((res) => res.json())
 			.then((data) => {
-			
+                setDataLoading(false)
 				setAllReviews(data);
 			});
     }, [])
@@ -85,37 +85,46 @@ const DetailsService = () => {
     
                 </div>
             </div>
-            <div className="">
-            <h2 className="text-3xl text-center text-primary p-10 capitalize">
-                What other Clients says About this service ?
-            </h2>
-                <h2 className="reviewItem text-center">
-                    {details.name} have {allReviews.length} Reviews
-                </h2>
-
-{
- user?.email ? <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
-    Add <span className='mx-2'>
-    <Link to={`/reviews/add/${details._id}`}>Reviews</Link>  
-    </span>
-   Here</div> : <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
-   Please  <span className='mx-2'>
-    <Link to={'/login'}>login</Link>  
-    to add a review  
-    </span></div>
-}
-            
-            <div className="w-8/12 mx-auto">
-           {
-            allReviews.map(item => <ReviewList
-            key={item._id}
-            item={item}
-            ></ReviewList>)
-           }
-               
-            </div>
-                
-            </div>
+            {
+					dataLoading ? <div className="flex items-center justify-center space-x-2">
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
+				</div> :
+					          <div className="">
+                              <h2 className="text-3xl text-center text-primary p-10 capitalize">
+                                  What other Clients says About this service ?
+                              </h2>
+                                  <h2 className="reviewItem text-center">
+                                      {details.name} have {allReviews.length} Reviews
+                                  </h2>
+                  
+                  {
+                   user?.email ? <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
+                      Add <span className='mx-2'>
+                      <Link to={`/reviews/add/${details._id}`}>Reviews</Link>  
+                      </span>
+                     Here</div> : <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
+                     Please  <span className='mx-2'>
+                      <Link to={'/login'}>login</Link>  
+                      to add a review  
+                      </span></div>
+                  }
+                              
+                              <div className="w-8/12 mx-auto">
+                             {
+                              allReviews.map(item => <ReviewList
+                              key={item._id}
+                              item={item}
+                              ></ReviewList>)
+                             }
+                                 
+                              </div>
+                                  
+                              </div>      
+				
+				}
+   
             </div>
          
         </div>

@@ -6,7 +6,7 @@ const ReviewGrid = ({ item , handleDelete ,handleEdits }) => {
 	const [serviceName, setServiceName] = useState([]);
 
 	useEffect(() => {
-		const url = `http://localhost:4000/services/${service_id}`;
+		const url = `http://localhost:4000/services?nameId=${service_id}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {

@@ -12,7 +12,7 @@ const Reviews = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = `http://localhost:4000/reviews?userEmail=${user?.email}`
+        const url = `http://localhost:4000/reviews?userEmail=${user.email}`
         fetch(url)
         .then((res) => res.json())
 			.then((data) => {
@@ -22,7 +22,7 @@ const Reviews = () => {
     }, [userReviews]);
 
     const handleEdits = (_id) => {
-{/* <Link to={`/reviews/add/${details._id}`}>Reviews</Link>   */}
+
     navigate(`/reviews/edit/${_id}`)
     }
     const handleDelete = (_id) => {
