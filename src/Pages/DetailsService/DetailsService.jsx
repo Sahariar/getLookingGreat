@@ -101,14 +101,15 @@ const DetailsService = () => {
                   
                   {
                    user?.email ? <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
-                      Add <span className='mx-2'>
+                      Add <span className='mx-1'>
                       <Link to={`/reviews/add/${details._id}`}>Reviews</Link>  
                       </span>
                      Here</div> : <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
-                     Please  <span className='mx-2'>
+                     Please  <span className='mx-1'>
                       <Link to={'/login'}>login</Link>  
-                      to add a review  
-                      </span></div>
+                      </span>
+                       to add a review  
+                     </div>
                   }
                               
                               <div className="w-8/12 mx-auto">

@@ -8,27 +8,17 @@ const AddReviews = () => {
     const service = useLoaderData();
     const {user} = useContext(AuthContext);
     const [success , setSuccess] = useState(false);
-    // console.log(service._id , user);
-
-     /*
-"userName": "Bridges",
-"userEmail": "claricerodriquez@rubadub.com",
-"userImg": "https://randomuser.me/api/portraits/women/47.jpg",
-"description": "Incididunt aute Lorem aliquip dolore aliqua tempor consequat consectetur. In quis non tempor consectetur amet tempor ullamco eu. Laboris ut laboris incididunt voluptate voluptate exercitation. Deserunt et in et ex. Commodo sit laborum ut quis tempor aliqua in reprehenderit sunt officia sit est fugiat.\r\nAnim culpa ut exercitation elit amet adipisicing eiusmod ipsum ut ea veniam. Dolore ipsum ex officia mollit cupidatat nostrud ea deserunt. Pariatur aliqua enim sunt sint.\r\n",
-"postTime": "2022-11-07 06:00",
-"ratting": 4.88,
-"service_id": "636a95f6074300328cd09110"
-}
-
-     */
+    const [submitting , setSubmitting] = useState(false);
+    console.log(service._id);
 
     const {
 		register,
 		handleSubmit,
 		formState: { errors },
+        reset,
 	} = useForm();
     const onSubmit =(data) =>{
-
+        setSubmitting(true)
         const userName = user?.displayName;
         const userEmail =user?.email
         const userImg = user?.photoURL;
@@ -39,18 +29,25 @@ const AddReviews = () => {
         "userImg":userImg,
         "service_id":service_id}
 
-        fetch(`http://localhost:4000/reviews/` , {
+        fetch(`http://localhost:4000/reviews/single` , {
             method:'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "authorization": `Bearer ${localStorage.getItem('GLG-token')}`
             },
             body:JSON.stringify(newData)
         })
         .then(res => res.json())
         .then(data => {
-            setSuccess(true);
-            console.log(success);
-            console.log('success', data);
+            console.log(data)
+            if(data.acknowledged){
+               reset()
+               setSuccess(true);
+               setSubmitting(false)
+            }
+            
+        }).catch(errors => {
+            console.log(errors);
         })
         
     }
@@ -66,6 +63,17 @@ const AddReviews = () => {
             </div>
         </div>
     <div className="xl:w-6/12 mx-auto my-24 card  bg-gradient-to-tl from-secondary/20 via-white to-secondary/20 shadow-xl rounded-lg">
+    { submitting === true && <div className="alert alert-info shadow-lg p-20">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span> Review is Submitting </span>
+                    <div className="flex items-center justify-center space-x-2">
+					<div className="w-8 h-8 rounded-full animate-pulse bg-secondary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-secondary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-secondary"></div>
+				</div>
+                </div>
+            </div>}
     { success === true && <div className="alert alert-success shadow-lg p-20">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>

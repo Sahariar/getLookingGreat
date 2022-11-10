@@ -9,20 +9,10 @@ const EditReviews = () => {
     const reviewItem = useLoaderData();
     const {user} = useContext(AuthContext);
     const [success , setSuccess] = useState(false);
-    console.log(reviewItem );
-
-     /*
-"userName": "Bridges",
-"userEmail": "claricerodriquez@rubadub.com",
-"userImg": "https://randomuser.me/api/portraits/women/47.jpg",
-"description": "Incididunt aute Lorem aliquip dolore aliqua tempor consequat consectetur. In quis non tempor consectetur amet tempor ullamco eu. Laboris ut laboris incididunt voluptate voluptate exercitation. Deserunt et in et ex. Commodo sit laborum ut quis tempor aliqua in reprehenderit sunt officia sit est fugiat.\r\nAnim culpa ut exercitation elit amet adipisicing eiusmod ipsum ut ea veniam. Dolore ipsum ex officia mollit cupidatat nostrud ea deserunt. Pariatur aliqua enim sunt sint.\r\n",
-"postTime": "2022-11-07 06:00",
-"ratting": 4.88,
-"service_id": "636a95f6074300328cd09110"
-}
-
-     */
-
+    const [error , setError] = useState(false);
+    const [submitting , setSubmitting] = useState(true);
+    const [notify , setNotify] = useState('')
+    console.log(reviewItem);
     const {
 		register,
 		handleSubmit,
@@ -30,17 +20,30 @@ const EditReviews = () => {
 	} = useForm();
     const onSubmit =(data) =>{
 
-        const userName = user?.displayName;
-        const userEmail =user?.email
-        const userImg = user?.photoURL;
-        const service_id = review.service_id;
-        const newData = { ...data , 
-        "userName":userName,
-        "userEmail":userEmail,
-        "userImg":userImg,
-        "service_id":service_id}
+        console.log(data);
+        fetch(`http://localhost:4000/reviews/single?id=${reviewItem._id}` , {
+            method:'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                "authorization": `Bearer ${localStorage.getItem('GLG-token')}`
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            
+            console.log(data);
+            if (data.modifiedCount > 0) {
+                const message = 'Review update Successfully'
+                setNotify(message);
+                setSuccess(true);
+            }
+        }).catch(errors => {
+            const err = errors
+            setError(true)
+            setNotify(err);
 
-        console.log(newData);
+        })
         
     }
     return (
@@ -54,10 +57,18 @@ const EditReviews = () => {
             </div>
         </div>
     <div className="xl:w-6/12 mx-auto my-24 card  bg-gradient-to-tl from-secondary/20 via-white to-secondary/20 shadow-xl rounded-lg">
+   
+   
     { success === true && <div className="alert alert-success shadow-lg p-20">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    {/* <span> {title} is Updated </span> */}
+                    {notify}
+                </div>
+            </div>}
+    { error === true && <div className="alert alert-error shadow-lg p-20">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    {notify}
                 </div>
             </div>}
 			<form onSubmit={handleSubmit(onSubmit)} className="space-y-12 p-20">
@@ -69,14 +80,14 @@ const EditReviews = () => {
                     className="input input-bordered input-primary w-full mx-2"
 					placeholder="Ratting"
 					{...register("ratting" , { required: "Your Ratting for the Service" })}
-                    defaultValue={"4.59"}
+                    defaultValue={reviewItem.ratting}
 				/>				
                 </div>
                 <div className="col-span-full flex flex-col">
                 <label htmlFor="description" className="text-xl p-2">Review :</label>
    	
                 <textarea {...register("description")} placeholder="Review" className="textarea textarea-primary w-full"  
-                defaultValue={ "Review"}
+                defaultValue={ reviewItem.description}
                 />			
                 </div>
 				

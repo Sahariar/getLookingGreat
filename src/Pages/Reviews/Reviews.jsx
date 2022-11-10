@@ -6,21 +6,31 @@ import DocumentTItle from '../../utilities/DocumentTitle';
 
 const Reviews = () => {
     DocumentTItle('Reviews');
-    const {user} = useContext(AuthContext);
+    const {user , logOut} = useContext(AuthContext);
     const [userReviews , setUserReviews] = useState([]);
     const [dataLoading, setDataLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = `http://localhost:4000/reviews?userEmail=${user.email}`
-        fetch(url)
-        .then((res) => res.json())
-			.then((data) => {
+        fetch(`http://localhost:4000/reviews/user?userEmail=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('GLG-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut();
+                }
+                return res.json();
+            })
+            .then(data => {
                 setDataLoading(false)
 				setUserReviews(data);
-			});
-    }, [userReviews]);
+            })
+    }, [user?.email, logOut ,userReviews])
 
+
+    
     const handleEdits = (_id) => {
 
     navigate(`/reviews/edit/${_id}`)
@@ -29,8 +39,11 @@ const Reviews = () => {
         const confirm = window.confirm("are you sure to Delete this Review")
         console.log(_id);
         if(confirm){
-                fetch(`http://localhost:4000/reviews/${_id}`, {
-                 method: "DELETE"
+                fetch(`http://localhost:4000/reviews?id=${_id}`, {
+                 method: "DELETE",
+                 headers: {
+                    "authorization": `Bearer ${localStorage.getItem('GLG-token')}`
+                }
                 })
                 .then(res=> res.json())
                 .then(data => {

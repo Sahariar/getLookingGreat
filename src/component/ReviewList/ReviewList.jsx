@@ -14,7 +14,7 @@ const ReviewList = ({item}) => {
     } = item
 
     return (
-        <div className="flex flex-col w-full  p-6 mx-auto divide-y divide-gray-700 card rounded-lg shadow-lg">
+        <div className="flex flex-col w-full  p-6 mx-auto divide-y divide-gray-700 card rounded-lg shadow-lg bg-gradient-to-tl from-secondary/20 via-white to-secondary my-5">
         <div className="flex justify-between p-4">
             <div className="flex space-x-4">
                 <div>

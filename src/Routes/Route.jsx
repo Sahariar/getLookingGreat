@@ -57,12 +57,12 @@ export const route = createBrowserRouter([
             },
             {
                 path:"/reviews/add/:id",
-                loader:({params})=> fetch(`http://localhost:4000/services/${params.id}`),
+                loader:({params})=> fetch(`http://localhost:4000/services/single/${params.id}`),
                 element:<PrivateRoutes><AddReviews /> </PrivateRoutes>
             },
             {
                 path:"/reviews/edit/:id",
-                loader:({params})=> fetch(`http://localhost:4000/reviews/${params.id}`),
+                loader:({params})=> fetch(`http://localhost:4000/reviews/single?id=${params.id}`),
                 element:<PrivateRoutes><EditReviews /> </PrivateRoutes>
             },
 
