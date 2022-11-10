@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, Navigate, useLoaderData, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { BsCurrencyDollar,BsStarHalf ,BsStarFill } from "react-icons/bs";
 import ReviewList from '../../component/ReviewList/ReviewList';
 import { AuthContext } from '../../context/AuthProvider';
@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/AuthProvider';
 const DetailsService = () => {
     const {user} = useContext(AuthContext);
     const details = useLoaderData();
+    const location = useLocation()
     const [allReviews , setAllReviews] = useState([]);
     const [dataLoading, setDataLoading] = useState(true);
     useEffect(() => {
@@ -18,7 +19,7 @@ const DetailsService = () => {
 				setAllReviews(data);
 			});
     }, [])
-    
+
 
     return (
         <section className="service-page" >
@@ -105,8 +106,11 @@ const DetailsService = () => {
                       <Link to={`/reviews/add/${details._id}`}>Reviews</Link>  
                       </span>
                      Here</div> : <div className='w-8/12 mx-auto text-center my-10 p-12 rounded-xl shadow-xl from-secondary via-white to-transparent bg-gradient-to-br'>
-                     Please  <span className='mx-1'>
-                      <Link to={'/login'}>login</Link>  
+                     Please  
+                     <span className='mx-1 bg-primary p-2 rounded-md cursor-pointer text-primary-content hover:bg-secondary hover:text-black'
+                    >
+                    <Link to={`/login`} state={{from:location}} >login</Link>  
+                    
                       </span>
                        to add a review  
                      </div>

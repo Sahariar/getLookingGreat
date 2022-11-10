@@ -16,8 +16,6 @@ const HomeServices = () => {
 			});
 	}, []);
 
-	console.log("homeServices", homeServices);
-
 	return (
 		<section className="home-service my-20">
 			<div className="container mx-auto">

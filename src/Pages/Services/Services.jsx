@@ -4,6 +4,7 @@ import DocumentTItle from "../../utilities/DocumentTitle";
 
 const Services = () => {
 	DocumentTItle('Services');
+	
 	const [allServices, setAllServices] = useState([]);
 	const [dataLoading, setDataLoading] = useState(true);
 	useEffect(() => {
@@ -15,8 +16,6 @@ const Services = () => {
 				setAllServices(data);
 			});
 	}, []);
-
-    console.log('service' , allServices)
 
 	return (
 		<section className="service-page">
