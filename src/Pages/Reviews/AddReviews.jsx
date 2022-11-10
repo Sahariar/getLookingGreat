@@ -36,16 +36,13 @@ const AddReviews = () => {
                 "authorization": `Bearer ${localStorage.getItem('GLG-token')}`
             },
             body:JSON.stringify(newData)
-        })
-        .then(res => res.json())
-        .then(data => {
+        }).then(res => res.json()).then(data => {
             console.log(data)
             if(data.acknowledged){
                reset()
                setSuccess(true);
                setSubmitting(false)
             }
-            
         }).catch(errors => {
             console.log(errors);
         })
@@ -74,10 +71,10 @@ const AddReviews = () => {
 				</div>
                 </div>
             </div>}
-    { success === true && <div className="alert alert-success shadow-lg p-20">
+    { success === true && <div className="alert bg-success shadow-lg p-10 w-8/12 mx-auto">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    {/* <span> {title} is Updated </span> */}
+                   <h3 className='text-2xl text-center'>Review is Submitted Successfully</h3> 
                 </div>
             </div>}
 			<form onSubmit={handleSubmit(onSubmit)} className="space-y-12 p-20">

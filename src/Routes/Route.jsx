@@ -62,7 +62,12 @@ export const route = createBrowserRouter([
             },
             {
                 path:"/reviews/edit/:id",
-                loader:({params})=> fetch(`http://localhost:4000/reviews/single?id=${params.id}`),
+                loader:({params})=> fetch(`http://localhost:4000/reviews/single?id=${params.id}`,
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('GLG-token')}`
+                    }
+                }),
                 element:<PrivateRoutes><EditReviews /> </PrivateRoutes>
             },
 

@@ -10,7 +10,7 @@ const EditReviews = () => {
     const {user} = useContext(AuthContext);
     const [success , setSuccess] = useState(false);
     const [error , setError] = useState(false);
-    const [submitting , setSubmitting] = useState(true);
+    const [submitting , setSubmitting] = useState(false);
     const [notify , setNotify] = useState('')
     console.log(reviewItem);
     const {
@@ -19,7 +19,7 @@ const EditReviews = () => {
 		formState: { errors },
 	} = useForm();
     const onSubmit =(data) =>{
-
+        setSubmitting(true)
         console.log(data);
         fetch(`http://localhost:4000/reviews/single?id=${reviewItem._id}` , {
             method:'PUT',
@@ -34,9 +34,10 @@ const EditReviews = () => {
             
             console.log(data);
             if (data.modifiedCount > 0) {
-                const message = 'Review update Successfully'
+                const message = 'Review Edited Successfully'
                 setNotify(message);
                 setSuccess(true);
+                setSubmitting(false)
             }
         }).catch(errors => {
             const err = errors
@@ -57,7 +58,17 @@ const EditReviews = () => {
             </div>
         </div>
     <div className="xl:w-6/12 mx-auto my-24 card  bg-gradient-to-tl from-secondary/20 via-white to-secondary/20 shadow-xl rounded-lg">
-   
+    { submitting === true && <div className="alert alert-info shadow-lg p-20">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span> Review is Submitting </span>
+                    <div className="flex items-center justify-center space-x-2">
+					<div className="w-8 h-8 rounded-full animate-pulse bg-secondary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-secondary"></div>
+					<div className="w-8 h-8 rounded-full animate-pulse bg-secondary"></div>
+				</div>
+                </div>
+            </div>}
    
     { success === true && <div className="alert alert-success shadow-lg p-20">
                 <div>

@@ -6,7 +6,7 @@ import DocumentTItle from "../../utilities/DocumentTitle";
 const Register = () => {
 	DocumentTItle('Register');
 
-    const {logInWithGoogle, createUserWithEmail, verifyEmail , userProfileUpdate} = useContext(AuthContext);
+    const {logInWithGoogle, createUserWithEmail , userProfileUpdate} = useContext(AuthContext);
     const [notification , setNotification] = useState(''); 
     const [error , setError] = useState(''); 
  
@@ -28,7 +28,8 @@ const Register = () => {
             const user = result.user;
             form.reset();
             console.log(user);
-            handleUserProfileUpdate(name ,photoUrl );
+            const message = 'User Created'
+            setNotification(message);
             // ...
           })
           .catch((error) => {
@@ -38,23 +39,7 @@ const Register = () => {
             // ..
           });
     }
-    const handleVerification = (email) =>{
-        verifyEmail(email)
-        .then(() => {
-            // The link was successfully sent. Inform the user.
-            // Save the email locally so you don't need to ask the user for it again
-            // if they open the link on the same device.
-            const message = 'Please Check your Email Inbox or Spam for Verification Code.'
-           setNotification(message);
-            // ...
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            setError(error)
-            // ...
-          });
-    }
+
 
     const handleUserProfileUpdate = (name , photoURL) => {
         userProfileUpdate(name , photoURL)
@@ -87,14 +72,17 @@ const Register = () => {
 
 	return (
 		<section className="register-area mb-12">
-            <div className="bg-accent p-12 my-10 shadow-xl">
-                <h1 className="text-4xl font-bold text-center text-white">
-                    Register Page
-                </h1>
+         	   <div className=" bg-gradient-to-tl  from-secondary/20 via-white to-secondary/20 shadow-xl rounded-lg xl:mx-12 mx-4">
+            <div className="container mx-auto">
+                <div className="text-center py-20 my-10">
+                    <h2 className="mb-05 text-5xl font-extrabold mb-5">Register Page</h2>
+                    <h4 className="subtitle text-xl">Home - Register</h4>
+                </div>
             </div>
+        </div>
             <div className="container mx-auto">
             <div className="flex">
-			<div className="w-6/12 max-w-md p-4 rounded-md shadow sm:p-8 mx-auto bg-blue-50">
+			<div className="w-6/12 max-w-md sm:p-8 mx-auto from-secondary via-white to-transparent bg-gradient-to-br rounded-md shadow">
 				<h2 className="mb-3 text-3xl font-semibold text-center">
 					Register your account
 				</h2>
@@ -107,23 +95,7 @@ const Register = () => {
 					</Link>
 					
 				</p>
-				<div className="my-6 space-y-4">
-					<button
-						aria-label="Login with Google"
-						type="button"
-						className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
-                    onClick={handleGoogleSubmission}
-                    >
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 32 32"
-							className="w-5 h-5 fill-current"
-						>
-							<path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
-						</svg>
-						<p>Login with Google</p>
-					</button>
-				</div>
+
 				<div className="flex items-center w-full my-4">
 					<hr className="w-full  " />
 					<p className="px-3  ">OR</p>
@@ -224,15 +196,29 @@ const Register = () => {
 					</div>
 					<button
 						type="submit"
-						className="w-full px-8 py-3 font-semibold rounded-md btn-accent"
+						className="w-full px-8 py-3 font-semibold rounded-md btn-primary"
 					>
 						Register
 					</button>
 				</form>
+				<div className="my-6 space-y-4">
+					<button
+						aria-label="Login with Google"
+						type="button"
+						className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+                    onClick={handleGoogleSubmission}
+                    >
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 32 32"
+							className="w-5 h-5 fill-current"
+						>
+							<path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
+						</svg>
+						<p>Login with Google</p>
+					</button>
+				</div>
 			</div>
-            <div className="w-5/12">
-     
-            </div>
             </div>
             </div>
             
