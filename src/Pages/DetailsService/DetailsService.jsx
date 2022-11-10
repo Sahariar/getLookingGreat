@@ -39,13 +39,13 @@ const DetailsService = () => {
 
         <div className="service-info-area my-10">
             <div className="container mx-auto">
-            <div className="flex">
-                <div className="w-4/12">
+            <div className="flex  flex-col lg:flex-row">
+                <div className="lg:w-4/12 w-10/12 mx-auto lg:mx-4">
                     <figure >
-                        <img src={details.thumbImg} alt={details.name} className='rounded-xl shadow-xl' />
+                        <img src={details.thumbImg} alt={details.name} className='rounded-xl shadow-xl mx-auto' />
                     </figure>
                 </div>
-                <div className="w-8/12">
+                <div className="lg:w-8/12 w-10/12 mx-auto lg:mx-4" >
                     <div className="title-area">
                         <h2 className="text-4xl py-5">
                             {details.name}
@@ -58,7 +58,7 @@ const DetailsService = () => {
                         {details.description}
                     </p>
                     <div className="meta-info my-10">
-                        <div className="flex justify-between">
+                        <div className="flex justify-between flex-col lg:flex-row mx-2">
                         <div className="flex gap-2">
 
                             <BsCurrencyDollar  size={22}/> 

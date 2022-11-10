@@ -16,7 +16,7 @@ const onSubmit =(data) =>{
     setSubmitting(true)
     console.log(data)
 
-    fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/services` , {
+    fetch(`http://localhost:4000/services` , {
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const onSubmit =(data) =>{
                     className="input input-bordered input-primary w-full mx-2"
 					placeholder="Service Name"
 					{...register("name" , { required: "Please Enter Service Name" })}
-                    defaultValue={"Service Name"}
+                    defaultValue={""}
 				/>				
                 </div>
 				<div className="flex flex-col col-span-full lg:col-span-3">

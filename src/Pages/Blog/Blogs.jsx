@@ -14,7 +14,7 @@ const Blogs = () => {
 				</div>
 			</div>
 			<div className="xl:w-10/12 mx-auto my-24">
-				<div className="w-8/12 mx-auto p-6 overflow-hidden rounded-lg shadow my-20">
+				<div className="w-10/12 lg:w-8/12 mx-auto p-6 overflow-hidden rounded-lg shadow my-20 bg-gradient-to-tl from-secondary/20 via-white to-secondary ">
 					<article className="p-5 space-y-5">
 						<h2 className="text-4xl my-10 font-bold text-center text-primary">
 							Difference between SQL and NoSQL
@@ -150,7 +150,7 @@ const Blogs = () => {
 					</article>
 				</div>
 				{/* end article 1 */}
-				<div className="w-8/12 mx-auto p-6 overflow-hidden rounded-lg shadow my-20">
+				<div className="w-10/12 lg:w-8/12 mx-auto p-6 overflow-hidden rounded-lg shadow my-20 bg-gradient-to-tl from-secondary/20 via-white to-secondary">
 					<article className="p-5 space-y-5">
 						<h2 className="text-4xl my-10 font-bold text-center text-primary">
 							What is JWT (JSON Web Token) and how does it work?
@@ -232,7 +232,7 @@ const Blogs = () => {
 					</article>
 				</div>
 				{/* end article 2 */}
-				<div className="w-8/12 mx-auto p-6 overflow-hidden rounded-lg shadow my-20 ">
+				<div className="w-10/12 lg:w-8/12 mx-auto p-6 overflow-hidden rounded-lg shadow my-20 bg-gradient-to-tl from-secondary/20 via-white to-secondary ">
 					<article className="p-5 space-y-5">
 						<h2 className="text-4xl my-10 font-bold text-center text-primary">
 							What is the difference between javascript and NodeJS?
@@ -288,7 +288,7 @@ const Blogs = () => {
 					</article>
 				</div>
 				{/* end article 3 */}
-				<div className="w-8/12 mx-auto p-6 overflow-hidden rounded-lg shadow my-20">
+				<div className="w-10/12 lg:w-8/12 mx-auto p-6 overflow-hidden rounded-lg shadow my-20 bg-gradient-to-tl from-secondary/20 via-white to-secondary">
 					<article className="p-5 space-y-5">
 						<h2 className="text-4xl my-10 font-bold text-center text-primary">
 							How does NodeJS handle multiple requests at the same time?

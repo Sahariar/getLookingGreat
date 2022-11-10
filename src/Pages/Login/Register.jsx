@@ -82,7 +82,7 @@ const Register = () => {
         </div>
             <div className="container mx-auto">
             <div className="flex">
-			<div className="w-6/12 max-w-md sm:p-8 mx-auto from-secondary via-white to-transparent bg-gradient-to-br rounded-md shadow">
+			<div className="lg:w-6/12 lg:max-w-md p-8 mx-4  lg:mx-auto from-secondary via-white to-transparent bg-gradient-to-br rounded-md shadow">
 				<h2 className="mb-3 text-3xl font-semibold text-center">
 					Register your account
 				</h2>

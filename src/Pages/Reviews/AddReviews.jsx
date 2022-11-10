@@ -29,7 +29,7 @@ const AddReviews = () => {
         "userImg":userImg,
         "service_id":service_id}
 
-        fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/reviews/single` , {
+        fetch(`http://localhost:4000/reviews/single` , {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',

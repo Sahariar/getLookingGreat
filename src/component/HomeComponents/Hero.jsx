@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./HomeComponents.css";
 
 const Hero = () => {
@@ -20,7 +21,11 @@ const Hero = () => {
   <p className="mb-5">
   Barbara Valentin is an internationally accredited and highly skilled makeup artist,
  working with high quality vegan products for all skin types and tones.</p>
-  <button className="btn btn-primary btn-outline">Get Started</button>
+ <Link to={'/services'}>
+    <span className="btn btn-primary btn-outline btn-block  sm:btn-wide">
+    Get Started
+    </span>
+ </Link>
     </div>
 
 </div>

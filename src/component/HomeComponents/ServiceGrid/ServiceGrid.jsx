@@ -17,8 +17,8 @@ const handleNavigate = (_id) =>{
     navigate(`/services/${_id}`)
 }
     return (
-        <div className="card w-96 lg:w-full xl:w-96 bg-base-100 shadow-xl hover:shadow-2xl mx-auto">
-  <figure className="px-10 pt-10 bg-gradient-to-br lg:bg-gradient-to-b from-secondary to-transparent bg-opacity-9 ">
+        <div className="card w-10/12 md:w-96 lg:w-full xl:w-96 bg-base-100 shadow-xl hover:shadow-2xl mx-auto bg-gradient-to-br lg:bg-gradient-to-b from-secondary to-transparent">
+  <figure className="px-10 pt-10  bg-opacity-9 ">
 
   <PhotoProvider>
       <PhotoView src={img}>

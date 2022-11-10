@@ -16,11 +16,11 @@ const ReviewGrid = ({ item , handleDelete ,handleEdits }) => {
 	
 	return (
 		<div className="card rounded-lg shadow-xl from-secondary via-white to-transparent bg-gradient-to-br my-5 w-10/12 mx-auto">
-			<div className="flex p-12">
-				<div className="info-area space-y-4">
+			<div className="flex flex-col lg:flex-row p-12">
+				<div className="info-area space-y-4 my-10 w-10/12 mx-auto ">
 					<h2 className="card-title">Review On : {serviceName.name}</h2>
 					<p className="mr-12"> <span className="text-xl font-bold">Review</span> : {description}</p>
-					<p className="flex gap-4"> 
+					<p className="flex lg:flex-row flex-col gap-4"> 
                     Ratting :
                     <span className="flex text-red-600">
                     
@@ -34,9 +34,9 @@ const ReviewGrid = ({ item , handleDelete ,handleEdits }) => {
                     
                     </span>
                      </p>
-					<p>Time: {postTime}</p>
+					<p className="flex lg:flex-row flex-col gap-4">Time: {postTime}</p>
 				</div>
-				<div className="flex flex-col justify-around w-2/12">
+				<div className="flex flex-row  justify-center gap-6 items-end lg:flex-col lg:w-2/12">
 					<button className="btn btn-circle btn-outline btn-primary"
                     onClick={()=> {
                         handleEdits(_id);

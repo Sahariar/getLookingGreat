@@ -3,7 +3,7 @@ import Logo from '../Logo/Logo';
 
 const Footer = () => {
     return (
-        <footer className=" bg-secondary pt-10 text-secondary-content m-10 rounded-xl shadow-xl">
+        <footer className=" bg-secondary pt-10 text-secondary-content m-2 md:m-10  rounded-xl shadow-xl">
         <div className="container mx-auto footer text-center flex flex-col xl:flex-row py-10">
           <div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center mx-10 ">
           <div className='my-3'>
@@ -51,7 +51,7 @@ ask@getLookingGreat.com
         
 <div className="footer footer-center text-base-content mt-6 bg-base-300 py-4 rounded-b-xl ">
   <div>
-    <p>Copyright © 2022 - All right reserved by Get Looking Great Ltd</p>
+    <p className='px-2'>Copyright © 2022 - All right reserved by Get Looking Great Ltd</p>
   </div>
 </div>
       </footer>
