@@ -3,6 +3,7 @@ import { Link, Navigate, useLoaderData, useLocation, useNavigate, useNavigation 
 import { BsCurrencyDollar,BsStarHalf ,BsStarFill } from "react-icons/bs";
 import ReviewList from '../../component/ReviewList/ReviewList';
 import { AuthContext } from '../../context/AuthProvider';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const DetailsService = () => {
     const {user} = useContext(AuthContext);
