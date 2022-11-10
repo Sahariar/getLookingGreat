@@ -21,7 +21,7 @@ const EditReviews = () => {
     const onSubmit =(data) =>{
         setSubmitting(true)
         console.log(data);
-        fetch(`http://localhost:4000/reviews/single?id=${reviewItem._id}` , {
+        fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/reviews/single?id=${reviewItem._id}` , {
             method:'PUT',
             headers: {
                 'Content-Type': 'application/json',

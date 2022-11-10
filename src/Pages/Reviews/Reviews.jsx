@@ -12,7 +12,7 @@ const Reviews = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:4000/reviews/user?userEmail=${user?.email}`, {
+        fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/reviews/user?userEmail=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('GLG-token')}`
             }
@@ -39,7 +39,7 @@ const Reviews = () => {
         const confirm = window.confirm("are you sure to Delete this Review")
         console.log(_id);
         if(confirm){
-                fetch(`http://localhost:4000/reviews?id=${_id}`, {
+                fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/reviews?id=${_id}`, {
                  method: "DELETE",
                  headers: {
                     "authorization": `Bearer ${localStorage.getItem('GLG-token')}`

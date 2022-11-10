@@ -10,7 +10,7 @@ const DetailsService = () => {
     const [allReviews , setAllReviews] = useState([]);
     const [dataLoading, setDataLoading] = useState(true);
     useEffect(() => {
-        const url = `http://localhost:4000/reviews?service_id=${details._id}`
+        const url = `https://b6a11-service-review-server-side-sahariar.vercel.app/reviews?service_id=${details._id}`
         fetch(url)
         .then((res) => res.json())
 			.then((data) => {

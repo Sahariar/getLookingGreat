@@ -7,7 +7,7 @@ const HomeServices = () => {
     const [dataLoading, setDataLoading] = useState(true);
 	useEffect(() => {
 		const limit = 3;
-		const url = `http://localhost:4000/services?limit=${limit}`;
+		const url = `https://b6a11-service-review-server-side-sahariar.vercel.app/services?limit=${limit}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {

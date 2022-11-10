@@ -40,7 +40,7 @@ export const route = createBrowserRouter([
             },
             {
                 path:"/services/:id",
-                loader:({params})=> fetch(`http://localhost:4000/services/single/${params.id}`),
+                loader:({params})=> fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/services/single/${params.id}`),
                 element:<DetailsService />
             },
             {
@@ -57,12 +57,12 @@ export const route = createBrowserRouter([
             },
             {
                 path:"/reviews/add/:id",
-                loader:({params})=> fetch(`http://localhost:4000/services/single/${params.id}`),
+                loader:({params})=> fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/services/single/${params.id}`),
                 element:<PrivateRoutes><AddReviews /> </PrivateRoutes>
             },
             {
                 path:"/reviews/edit/:id",
-                loader:({params})=> fetch(`http://localhost:4000/reviews/single?id=${params.id}`,
+                loader:({params})=> fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/reviews/single?id=${params.id}`,
                 {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('GLG-token')}`

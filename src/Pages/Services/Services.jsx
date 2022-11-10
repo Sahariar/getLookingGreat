@@ -7,7 +7,7 @@ const Services = () => {
 	const [allServices, setAllServices] = useState([]);
 	const [dataLoading, setDataLoading] = useState(true);
 	useEffect(() => {
-		const url = `http://localhost:4000/services`;
+		const url = `https://b6a11-service-review-server-side-sahariar.vercel.app/services`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {

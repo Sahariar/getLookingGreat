@@ -34,7 +34,7 @@ const Login = () => {
 				email:user.email
 			}
 			 // get jwt token
-			 fetch('http://localhost:4000/jwt', {
+			 fetch('https://b6a11-service-review-server-side-sahariar.vercel.app/jwt', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json'
@@ -68,7 +68,7 @@ const Login = () => {
 				email:user.email
 			}
 			 // get jwt token
-			 fetch('http://localhost:4000/jwt', {
+			 fetch('https://b6a11-service-review-server-side-sahariar.vercel.app/jwt', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json'
