@@ -16,7 +16,7 @@ const onSubmit =(data) =>{
     setSubmitting(true)
     console.log(data)
 
-    fetch(`http://localhost:4000/services` , {
+    fetch(`https://b6a11-service-review-server-side-sahariar.vercel.app/services` , {
         method:'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -42,9 +42,11 @@ const DetailsService = () => {
             <div className="container mx-auto">
             <div className="flex  flex-col lg:flex-row">
                 <div className="lg:w-4/12 w-10/12 mx-auto lg:mx-4">
-                    <figure >
-                        <img src={details.thumbImg} alt={details.name} className='rounded-xl shadow-xl mx-auto' />
-                    </figure>
+                <PhotoProvider>
+      <PhotoView src={details.img}>
+        <img src={details.thumbImg} alt={details.name} className='rounded-xl shadow-xl mx-auto'/>
+      </PhotoView>
+    </PhotoProvider>
                 </div>
                 <div className="lg:w-8/12 w-10/12 mx-auto lg:mx-4" >
                     <div className="title-area">
