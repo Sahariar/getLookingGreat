@@ -14,7 +14,7 @@ const Header = () => {
 	};
 	return (
 		<header className="header-area z-50 relative">
-			<div className="container mx-auto navbar">
+			<div className="container mx-auto navbar bg-base-100 mt-4 rounded-lg shadow-lg">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost xl:hidden">
@@ -90,7 +90,7 @@ const Header = () => {
 									<Logo></Logo>
 								</div>
 								<div className="name-title text-xl">
-								<h1 className="font-extrabold text-primary hidden lg:flex">
+								<h1 className="font-extrabold hidden lg:flex">
 								Get Looking Great
         </h1>
 								</div>
