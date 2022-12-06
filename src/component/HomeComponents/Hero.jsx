@@ -22,7 +22,7 @@ const Hero = () => {
 								skilled makeup artist, working with high quality vegan products
 								for all skin types and tones.
 							</p>
-							<Link to={"/services"} className="btn btn-primary btn-block text-primary-content sm:btn-wide">
+							<Link to={"/services"} className="btn btn-primary btn-block text-white sm:btn-wide">
 									Get Started
 							</Link>
 						</div>

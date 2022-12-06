@@ -48,7 +48,7 @@ const HomeServices = () => {
 				
                         <div className="lg:w-2/12 w-4/12 mx-auto my-10">
                         <Link to={'/services'}>
-                    <span className="btn btn-primary btn-outline btn-block">
+                    <span className="btn btn-primary text-white btn-block">
                         See All
                     </span>
                 </Link>

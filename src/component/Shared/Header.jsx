@@ -181,7 +181,7 @@ const Header = () => {
 						<div className="flex">
 							<div className="auth-area gap-4 flex">
 								<Link to={"/login"}>
-									<span className="btn btn-secondary"> Login</span>{" "}
+									<span className="btn btn-primary"> Login</span>{" "}
 								</Link>
 							</div>
 						</div>
