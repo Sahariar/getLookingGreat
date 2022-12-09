@@ -20,7 +20,9 @@ const handleNavigate = (_id) =>{
 			</figure>
 			<div className="card-body xl:w-7/12">
 				<h2 className="card-title">{name}</h2>
+				<div className="description">
 				<p>{description?.slice(0, 100)}....</p>
+				</div>
 				<div className="info-area">
 					<p className="text-xl text-primary ">
 						Price: <span className="font-bold">${price}</span>
