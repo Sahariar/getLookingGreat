@@ -6,7 +6,7 @@ const HomeServices = () => {
 	const [homeServices, setHomeServices] = useState([]);
     const [dataLoading, setDataLoading] = useState(true);
 	useEffect(() => {
-		const limit = 4;
+		const limit = 3;
 		const url = `https://b6a11-service-review-server-side-sahariar.vercel.app/services?limit=${limit}`;
 		fetch(url)
 			.then((res) => res.json())
@@ -35,7 +35,7 @@ const HomeServices = () => {
 					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
 					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
 				</div> :
-					       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+					       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 
                            {homeServices.map((item) => (
                                <ServiceGrid key={item._id} item={item}></ServiceGrid>

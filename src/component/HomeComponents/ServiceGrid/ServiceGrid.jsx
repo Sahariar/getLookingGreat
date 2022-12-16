@@ -18,22 +18,22 @@ const handleNavigate = (_id) =>{
     navigate(`/services/${_id}`)
 }
     return (
-        <div className=" text-primary image-full card w-10/12 rounded-2xl shadow-xl hover:shadow-2xl mx-auto ">
+        <div className=" text-primary image-full card  rounded-2xl shadow-xl hover:shadow-2xl mx-auto ">
   <figure>
-        <img src={thumbImg} alt={name} className=""/>
+        <img src={thumbImg} alt={name} className="object-fill h-48 w-full"/>
   </figure>
   <div className="card-body text-primary items-center justify-center rounded-2xl bg-white/80 shadow-xl hover:shadow-2xl">
     <h2 className="card-title">{name}</h2>
 
     <div className="info-area">
-    <p className="text-xl my-4">
-     {description?.slice(0,50)}...
+    <p className="text-lg my-4">
+     {description?.slice(0,150)}...
       </p>
-      <p className="text-xl">
+      <p className="text-lg">
         Price:
      <span className="font-bold text-primary mx-4">${price}</span> 
       </p>
-      <div className="text-xl flex items-center">
+      <div className="text-lg flex items-center">
         Ratting:
       <span className="font-bold text-primary mx-2"><ReviewStar reviewScore={ratting}></ReviewStar></span> 
       </div>
