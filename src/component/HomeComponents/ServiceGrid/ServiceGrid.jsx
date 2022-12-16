@@ -18,7 +18,7 @@ const handleNavigate = (_id) =>{
     navigate(`/services/${_id}`)
 }
     return (
-        <div className=" text-primary image-full card w-10/12 md:w-10/12 lg:w-full xl:w-full rounded-2xl shadow-xl hover:shadow-2xl mx-auto ">
+        <div className=" text-primary image-full card w-10/12 rounded-2xl shadow-xl hover:shadow-2xl mx-auto ">
   <figure>
         <img src={thumbImg} alt={name} className=""/>
   </figure>
