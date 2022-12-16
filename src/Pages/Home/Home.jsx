@@ -5,6 +5,7 @@ import HomeShowcase from '../../component/HomeComponents/HomeShowcase'
 import HireMe from '../../component/HomeComponents/HireMe'
 import Testimonials from '../../component/HomeComponents/Testimonials'
 import DocumentTItle from '../../utilities/DocumentTitle';
+import Blog from '../../component/HomeComponents/Blog';
 
 const Home = () => {
     DocumentTItle('Home');
@@ -14,6 +15,7 @@ const Home = () => {
         <HomeServices></HomeServices>
         <HomeShowcase></HomeShowcase>
         <HireMe></HireMe>
+        <Blog></Blog>
         <Testimonials></Testimonials>
     </>
     );
