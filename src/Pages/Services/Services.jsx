@@ -19,15 +19,16 @@ const Services = () => {
 
 	return (
 		<section className="service-page">
-			<div className=" bg-gradient-to-tl  from-secondary/20 via-white to-secondary/20 shadow-xl rounded-lg xl:mx-12 mx-4">
-				<div className="container mx-auto">
+			<div className="container mx-auto bg-gradient-to-tl  from-secondary/20 via-white to-secondary/20 shadow-xl rounded-lg">
+				<div className="">
 					<div className="text-center py-20 my-10">
 						<h2 className="mb-05 text-5xl font-extrabold mb-5">Service</h2>
 						<h4 className="subtitle text-xl">Home - Service</h4>
 					</div>
 				</div>
 			</div>
-            <div className="xl:w-10/12 mx-auto my-48">
+			<div className="container mx-auto">
+			<div className="mx-auto my-48">
                 {
 					dataLoading ? <div className="flex items-center justify-center space-x-2">
 					<div className="w-8 h-8 rounded-full animate-pulse bg-primary"></div>
@@ -44,6 +45,8 @@ const Services = () => {
            
             
         </div>
+			</div>
+       
 		</section>
 	);
 };

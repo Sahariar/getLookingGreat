@@ -3,9 +3,9 @@ import Logo from '../Logo/Logo';
 
 const Footer = () => {
     return (
-        <footer className=" bg-secondary pt-10 text-secondary-content m-2 md:m-10  rounded-xl shadow-xl">
-        <div className="container mx-auto footer text-center flex flex-col xl:flex-row py-10">
-          <div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center mx-10 ">
+        <footer className=" bg-secondary pt-10 text-secondary-content container mx-auto  rounded-xl shadow-xl mb-4">
+        <div className=" footer text-center flex flex-col xl:flex-row py-10 px-4">
+          <div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center ">
           <div className='my-3'>
           <div className="flex flex-col justify-center items-center  w-full xl:flex-row xl:items-start  xl:justify-start">
           <Logo></Logo>
